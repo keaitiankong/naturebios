@@ -1,11 +1,13 @@
 // 数据库配置
+const dialect = process.env.DB_DIALECT || 'postgresql';
+
 module.exports = {
   development: {
-    username: process.env.DB_USER || 'root',
+    username: process.env.DB_USER || 'postgres',
     password: process.env.DB_PASS || '',
     database: process.env.DB_NAME || 'naturebios',
     host: process.env.DB_HOST || 'localhost',
-    dialect: 'mysql',
+    dialect: dialect,
     logging: false,
     pool: {
       max: 20,
@@ -24,7 +26,7 @@ module.exports = {
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
     host: process.env.DB_HOST,
-    dialect: 'mysql',
+    dialect: dialect,
     logging: false,
     pool: {
       max: 50,

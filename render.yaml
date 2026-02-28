@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: naturebios-backend
+    env: node
+    buildCommand: cd naturebios-backend && npm install
+    startCommand: cd naturebios-backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: DB_DIALECT
+        value: postgresql
+    disks:
+      - name: uploads
+        mountPath: /app/naturebios-backend/uploads
+        sizeGB: 1
+
+  - type: psql
+    name: naturebios-db
+    plan: free
